@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload = function () {
+            var a = new Vue({
+                el: '#app',
+                data: {
+                    msg: '안녕하세요 Vue!',
+                    name: '홍길동',
+                    number: 0
+                },
+                methods: {
+                    increment: function () {
+                        // 인스턴스 내부의 데이터모델에 접근 할 땐,
+                        // this 를 사용한다
+                        this.number++;
+                    },
+                    decrement: function () {
+                        this.number--;
+                    }
+                }
+            });
+
+            var b = new Vue({
+                el: '#app2',
+                data: {
+                    msg: '안녕하세요 Vue!',
+                    name: '<i>이순신22</i>',
+                    value: 0,
+                    result: true,
+                    img1: 'img/game_1.jpg',
+                    img2: 'img/game_2.jpg',
+                    todos: [
+                        { text: 'Vue.js 튜토리얼 작성' },
+                        { text: 'React.js 공부하기' },
+                        { text: '취업하기' }
+                    ]
+                }
+
+            });
+            console.log(b.result);
+        };
+    </script>
+
+</head>
+
+<body>
+    <div id="app">
+        {{msg}} {{name}}
+        <br>
+        <input type="text" v-model="name">
+        <button type="button" v-on:click="increment">증가</button>
+        <button type="button" v-on:click="decrement">감소</button>
+        <h1>카운터: {{ number }}</h1>
+    </div>
+
+    <div id="app2">
+        <span v-text="msg"></span>
+        <span v-html="name"></span>
+        <span v-if="value > 5">이건 value가 5보다 클때 나타납니다.</span>
+        <div>
+            <input type="checkbox" v-model="result">
+            <img v-bind:src="result?img1:img2">
+        </div>
+        <ul>
+            <li v-for="t in todos">{{t.text}}</li>
+        </ul>
+    </div>
+</body>
+
+</html>

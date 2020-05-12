@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        window.onload=function () {
+            var a = new Vue({
+                el: '#app',
+                data: {
+                    msg: '안녕하세요 Vue!',
+                    name: '홍길동'
+                }
+            });
+
+            var b = new Vue({
+                el: '#app2',
+                data: {
+                    msg: '안녕하세요 Vue!',
+                    name: '이순신'
+                }
+            });
+        };
+    </script>
+
+</head>
+<body>
+    <div id="app">
+        {{msg}} {{name}}
+    </div>
+    <div id="app2">
+        {{msg}} {{name}}
+    </div>
+</body>
+</html>
